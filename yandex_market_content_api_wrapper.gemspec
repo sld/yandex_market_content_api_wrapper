@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = YandexMarketContentApiWrapper::VERSION
   spec.authors       = ["Idris"]
   spec.email         = ["sld7700@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{Yandex.Market content API wrapper. More info about API: http://api.yandex.ru/market/content/ }
+  spec.summary       = %q{Yandex.Market content API wrapper}
+  spec.homepage      = "http://github.com/sld/yandex_market_content_api_wrapper"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

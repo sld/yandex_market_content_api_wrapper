@@ -1,0 +1,5 @@
+require 'yandex_market_content_api_wrapper'
+
+describe YandexMarketContentApiWrapper do
+
+end
