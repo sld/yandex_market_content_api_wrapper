@@ -47,6 +47,12 @@ module YandexMarketContentApiWrapper
         use_referer_site
       end
 
+
+      def find *args
+        super *args
+        check_rps_restrictions
+      end
+
     end
 
 
@@ -60,6 +66,11 @@ module YandexMarketContentApiWrapper
 
     def self.use_referer_site
       self.headers['Referer'] = @@referer
+    end
+
+
+    def self.check_rps_restrictions
+      puts "Explain method for check rps restrictions http://api.yandex.ru/market/content/doc/dg/concepts/limits.xml"
     end
 
   end

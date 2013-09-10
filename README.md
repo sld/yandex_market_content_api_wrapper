@@ -33,6 +33,7 @@ YandexMarketContentApiWrapper::Search.search_by( :text => "sword", :geo_id => 0 
 ## TODO
 
 * Add 'children' support to Georegion and Category
+* Add restriction for rps!
 
 ## Contributing
 
