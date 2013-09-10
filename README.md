@@ -1,6 +1,6 @@
 # YandexMarketContentApiWrapper
 
-TODO: Write a gem description
+Yandex.Market content API wrapper. More info about API: http://api.yandex.ru/market/content/
 
 ## Installation
 
@@ -18,7 +18,21 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+require "yandex_market_content_api_wrapper"
+
+
+YandexMarketContentApiWrapper.api_key = API_KEY
+
+YandexMarketContentApiWrapper::Category.find(2) # v1/category/2.xml
+YandexMarketContentApiWrapper::Georegion.find(:all) # v1/georegion.xml
+# geo_id = 0 means ALL_REGIONS
+YandexMarketContentApiWrapper::Search.search_by( :text => "sword", :geo_id => 0 ) # v1/search.xml?text=sword&geo_id=0
+```
+
+## TODO
+
+* Add 'children' support to Georegion and Category
 
 ## Contributing
 
