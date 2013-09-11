@@ -30,10 +30,11 @@ YandexMarketContentApiWrapper::Georegion.find(:all) # v1/georegion.xml
 YandexMarketContentApiWrapper::Search.search_by( :text => "sword", :geo_id => 0 ) # v1/search.xml?text=sword&geo_id=0
 ```
 
+If X-RateLimit_s are remained then run sleep for one second.
+
 ## TODO
 
 * Add 'children' support to Georegion and Category
-* Add restriction for rps!
 
 ## Contributing
 
