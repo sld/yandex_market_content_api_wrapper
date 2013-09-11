@@ -1,5 +1,6 @@
 require "yandex_market_content_api_wrapper/version"
 require 'active_resource'
+require 'activeresource-response'
 require 'yandex_market_content_api_wrapper/yandex_market'
 require 'yandex_market_content_api_wrapper/category'
 require 'yandex_market_content_api_wrapper/georegion'

@@ -12,6 +12,9 @@ module YandexMarketContentApiWrapper
     @@referer = ""
 
 
+    add_response_method :http_response
+
+
     class << self
       # Если headers не заданы в подклассе, то назначаем ему
       # headers суперкласса
@@ -49,8 +52,9 @@ module YandexMarketContentApiWrapper
 
 
       def find *args
-        super *args
-        check_rps_restrictions
+        found = super *args
+        try_rps_restrictions
+        return found
       end
 
     end
@@ -69,8 +73,18 @@ module YandexMarketContentApiWrapper
     end
 
 
-    def self.check_rps_restrictions
-      puts "Explain method for check rps restrictions http://api.yandex.ru/market/content/doc/dg/concepts/limits.xml"
+    # http://api.yandex.ru/market/content/doc/dg/concepts/limits.xml
+    # If limits remained then sleep for 1 second
+    def self.try_rps_restrictions
+      # http_response.headers keys are symbolized for activeresource-response Gem
+      global_limit = self.http_response.headers[:x_ratelimit_global_limit]
+      global_remaining = self.http_response.headers[:x_ratelimit_global_remaining]
+      method_limit = self.http_response.headers[:x_ratelimit_method_limit]
+      method_remaining = self.http_response.headers[:x_ratelimit_method_remaining]
+
+      if method_remaining == 0 || global_remaining == 0
+        sleep 1 
+      end  
     end
 
   end
